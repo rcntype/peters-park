@@ -1,11 +1,6 @@
 const Sequelize = require('sequelize')
+const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/peters-park', { logging: false })
 
-const db = new Sequelize(
-  process.env.DATABASE_URL || 'postgres://localhost:5432/peters-park',
-  {
-    logging: false
-  }
-)
 
 const Cat = db.define('cat', {
   name: {
@@ -40,6 +35,7 @@ Toy.belongsToMany(Cat, { as: 'toyRatings', through: ToyLikeness })
 Cat.belongsToMany(Toy, { as: 'toyRatings', through: ToyLikeness })
 // many to many friends
 // many to many toy thing
+
 
 module.exports = {
   db, Cat, Toy

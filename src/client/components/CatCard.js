@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom' // hint, you may want to use this
 // Check AllCats specs for what is being checked
 
 const CatCard = (props) => {
+  console.log(props)
   return (
-    <div class='cat-card'>
-      YOUR CAT CARD CODE HERE
-
-    </div>
+    <div class='cat-card'>{
+      <div>Cat Card</div>
+    
+    
+    }</div>
   )
 }
 
