@@ -6,13 +6,11 @@ import { Link } from 'react-router-dom' // hint, you may want to use this
 // Check AllCats specs for what is being checked
 
 const CatCard = (props) => {
-  console.log(props)
   return (
-    <div class='cat-card'>{
-      <div>Cat Card</div>
-    
-    
-    }</div>
+    <div className='cat-card'>
+      <Link to={`/cats/${props.id}`}>{props.name}</Link>
+      <img src={props.imageUrl}/>
+    </div>
   )
 }
 

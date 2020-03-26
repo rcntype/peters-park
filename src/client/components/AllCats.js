@@ -1,29 +1,36 @@
-import React from 'react'
+import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import CatCard from './CatCard'
+import { fetchCats } from '../store';
 
 
-export class DisconnectedAllCats extends React.Component {
-
-  render() {
-    // const {cats} = this.props
-    console.log(this.props)
+class DisconnectedAllCats extends Component{
+  componentDidMount(){
+    this.props.goGetCats()
+  }
+  render(){
+    const {cats} = this.props
     return (
-      <div className='all-cats'>
-        <h1>AllCats's Park</h1>
-        <ul>{
-          //cats.map(cat => <li><CatCard {...cat} key={cat.id} /></li>)
-        }</ul>
+      <div className='Cats'>
+        <h1>Park's Park</h1>
+          {cats.map(cat => <CatCard {...cat} key={cat.id} />)}
       </div>
     )
   }
 }
 
-export const mapStateToProps = (state)=> ({...state})
+const mapStateToProps = ({cats}) => ({cats})
 
-export const mapDispatchToProps = (dispatch) => ({goGetCats: () => dispatch()})
+const mapDispatchToProps = (dispatch) => ({
+  goGetCats: () => {
+    dispatch(fetchCats())
+  }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisconnectedAllCats)
+
+
+
 
 
 
