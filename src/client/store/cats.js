@@ -6,7 +6,7 @@ const initialState = []
 export const loadCats = data => ({type: 'LOAD_CATS', cats: data})
 
 export const fetchCats = () => async dispatch => {
-    const cats = (await axios.get('/api/cats/')).data
+    const cats = (await axios.get('/api/cats')).data
     dispatch(loadCats(cats))
 }
 

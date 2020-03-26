@@ -7,9 +7,10 @@ import Park from './components/Park'
 
 
 const Router = (props) => {
+  console.log(props)
   return (
     <div>
-      <Route exact path='/' component={Park} />
+      <Route exact path='/' component={Park}/>
       <Route exact path="/cats" component={AllCats} />
       <Route exact path="/cats/:catId" component={SingleCat} />
 
